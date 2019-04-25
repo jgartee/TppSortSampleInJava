@@ -13,8 +13,8 @@ import java.util.List;
 
 public class SortTest {
 
-    private List<Integer> intList() {
-        return Arrays.asList();
+    private List<Integer> intList(Integer... ints) {
+        return Arrays.asList(ints);
     }
 
     private void assertSorted(List<Integer> unsorted, List<Integer> sorted) {
@@ -24,9 +24,10 @@ public class SortTest {
     @Test
     public void sortings() throws Exception {
         assertSorted(intList(), intList());
+        assertSorted(intList(1), intList(1));
     }
 
     private List<Integer> sort(List<Integer> list) {
-        return new ArrayList<Integer>();
+        return list;
     }
 }
