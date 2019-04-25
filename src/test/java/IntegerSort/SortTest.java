@@ -5,6 +5,7 @@ package IntegerSort;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,14 +15,15 @@ import java.util.List;
 public class SortTest {
     @Test
     public void sortings() throws Exception {
-        assertThat(sort(intList()), is(Arrays.asList()));
+        assertThat(sort(intList()), is(intList()));
+        assertThat(sort(intList(1)), is(intList(1)));
     }
 
     private List<Integer> sort(List<Integer> list) {
-        return new ArrayList<Integer>();
+        return list;
     }
 
-    private List<Integer> intList() {
-        return Arrays.asList();
+    private List<Integer> intList(Integer... ints) {
+        return Arrays.asList(ints);
     }
 }
