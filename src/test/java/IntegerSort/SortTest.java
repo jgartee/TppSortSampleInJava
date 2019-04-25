@@ -3,6 +3,7 @@
  */
 package IntegerSort;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -22,6 +23,20 @@ public class SortTest {
         assertThat(sort(unsorted), is(sorted));
     }
 
+    private void sortBigList(int n) {
+        List<Integer> unsorted = new ArrayList<Integer>();
+
+        for (int i = 0; i < n; i++) {
+            unsorted.add((int) (Math.random() * 10000.0));
+        }
+
+        List<Integer> sorted = sort(unsorted);
+
+        for (int i = 0; i < n - 1; i++) {
+            assertTrue((sorted.get(i) <= sorted.get(i + 1)));
+        }
+    }
+
     @Test
     public void sortings() throws Exception {
         assertSorted(intList(), intList());
@@ -33,6 +48,8 @@ public class SortTest {
         assertSorted(intList(3, 2, 1), intList(1, 2, 3));
         assertSorted(intList(1, 3, 2), intList(1, 2, 3));
         assertSorted(intList(3, 2, 2, 1), intList(1, 2, 2, 3));
+
+        sortBigList(1000);
     }
 
     private List<Integer> sort(List<Integer> list) {
@@ -45,8 +62,8 @@ public class SortTest {
             Integer m = list.get(0);
             List<Integer> h = new ArrayList<Integer>();
 
-            for(int i : list.subList(1, list.size())){
-                if(i > m)
+            for (int i : list.subList(1, list.size())) {
+                if (i > m)
                     h.add(i);
                 else
                     l.add(i);
@@ -56,6 +73,7 @@ public class SortTest {
             sorted.add(m);
             sorted.addAll(sort(h));
         }
-            return sorted;
+
+        return sorted;
     }
 }
