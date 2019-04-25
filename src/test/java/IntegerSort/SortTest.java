@@ -15,7 +15,7 @@ import java.util.List;
 public class SortTest {
 
     private void assertSorted(List<Integer> unsorted, List<Integer> sorted) {
-        assertThat(unsorted, is(sorted));
+        assertThat(sort(unsorted), is(sorted));
     }
 
     private List<Integer> sort(List<Integer> list) {
@@ -24,8 +24,8 @@ public class SortTest {
 
     @Test
     public void sortings() throws Exception {
-        assertSorted(sort(intList()), intList());
-        assertSorted(sort(intList(1)), intList(1));
+        assertSorted(intList(), intList());
+        assertSorted(intList(1), intList(1));
     }
 
     private List<Integer> intList(Integer... ints) {
