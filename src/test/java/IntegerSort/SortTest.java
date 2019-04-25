@@ -34,20 +34,12 @@ public class SortTest {
     private List<Integer> sort(List<Integer> list) {
         List<Integer> sorted = new ArrayList<Integer>();
 
-        if (list.size() == 1) {
-            sorted.add(list.get(0));
-        } else if (list.size() == 2) {
-            if (list.get(0) > list.get(1)) {
-                sorted.add(list.get(1));
-                sorted.add(list.get(0));
-            } else {
-                sorted.add(list.get(0));
-                sorted.add(list.get(1));
-            }
-        } else if (list.size() == 3){
-            int l = 0;
-            int m = list.get(0);
-            int h = 0;
+        if (list.size() <= 1) {
+            return list;
+        } else {
+            Integer l = null;
+            Integer m = list.get(0);
+            Integer h = null;
 
             for(int i : list){
                 if(i > m)
@@ -56,9 +48,9 @@ public class SortTest {
                     l = i;
             }
 
-            sorted.add(l);
+            if( l != null) sorted.add(l);
             sorted.add(m);
-            sorted.add(h);
+            if(h != null) sorted.add(h);
         }
             return sorted;
     }
