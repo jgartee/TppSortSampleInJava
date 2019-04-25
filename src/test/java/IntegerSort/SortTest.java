@@ -5,6 +5,7 @@ package IntegerSort;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -29,6 +30,19 @@ public class SortTest {
         assertSorted(intList(2, 1), intList(1, 2));
         assertSorted(intList(1, 3, 2), intList(1, 2, 3));
         assertSorted(intList(3, 2, 1), intList(1, 2, 3));
+
+        sortBigList(10000);
+    }
+
+    private void sortBigList(int n) {
+        List<Integer> unsorted = new ArrayList<Integer>();
+        for(int i = 0 ; i < n ; i++)
+            unsorted.add((int)(Math.random() * 10000.0));
+
+        List<Integer> sorted = sort(unsorted);
+
+        for(int i = 0 ; i < n - 1 ; i++)
+            assertTrue(sorted.get(i) <= sorted.get(i + 1));
     }
 
     private List<Integer> sort(List<Integer> list) {
