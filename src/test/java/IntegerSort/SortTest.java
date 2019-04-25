@@ -10,16 +10,21 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SortTest {
+
+    private List<Integer> intList() {
+        return Arrays.asList();
+    }
+
+    private void assertSorted(List<Integer> unsorted, List<Integer> sorted) {
+        assertThat(sort(unsorted), is(sorted));
+    }
+
     @Test
     public void sortings() throws Exception {
-        assertThat(sort(intList()), is(Arrays.asList()));
+        assertSorted(intList(), intList());
     }
 
     private List<Integer> sort(List<Integer> list) {
         return null;
-    }
-
-    private List<Integer> intList() {
-        return Arrays.asList();
     }
 }
