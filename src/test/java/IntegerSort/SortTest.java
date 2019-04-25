@@ -32,6 +32,8 @@ public class SortTest {
 
         List<Integer> sorted = sort(unsorted);
 
+        sort(sorted);
+
         for (int i = 0; i < n - 1; i++) {
             assertTrue((sorted.get(i) <= sorted.get(i + 1)));
         }
@@ -49,7 +51,7 @@ public class SortTest {
         assertSorted(intList(1, 3, 2), intList(1, 2, 3));
         assertSorted(intList(3, 2, 2, 1), intList(1, 2, 2, 3));
 
-        sortBigList(1000);
+        sortBigList(50000);
     }
 
     private List<Integer> sort(List<Integer> list) {
