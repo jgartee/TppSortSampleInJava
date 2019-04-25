@@ -32,12 +32,10 @@ public class SortTest {
     }
 
     private List<Integer> sort(List<Integer> list) {
-        for (int size = list.size(); size > 0; size--) {
-            for (int index = 0; size > index + 1; index++) {
+        for (int size = list.size(); size > 0; size--)
+            for (int index = 0; size > index + 1; index++)
                 if (outOfOrder(list, index))
                     swap(list, index);
-            }
-        }
 
         return list;
     }
