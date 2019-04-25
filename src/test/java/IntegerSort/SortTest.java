@@ -18,8 +18,8 @@ public class SortTest {
         assertThat(sort(unsorted), is(sorted));
     }
 
-    private List<Integer> sort(List<Integer> list) {
-        return list;
+    private List<Integer> intList(Integer... ints) {
+        return Arrays.asList(ints);
     }
 
     @Test
@@ -28,7 +28,8 @@ public class SortTest {
         assertSorted(intList(1), intList(1));
     }
 
-    private List<Integer> intList(Integer... ints) {
-        return Arrays.asList(ints);
+
+    private List<Integer> sort(List<Integer> list) {
+        return list;
     }
 }
