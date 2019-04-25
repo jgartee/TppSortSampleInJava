@@ -13,14 +13,19 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SortTest {
-    @Test
-    public void sortings() throws Exception {
-        assertThat(sort(intList()), is(intList()));
-        assertThat(sort(intList(1)), is(intList(1)));
+
+    private void assertSorted(List<Integer> unsorted, List<Integer> sorted) {
+        assertThat(unsorted, is(sorted));
     }
 
     private List<Integer> sort(List<Integer> list) {
         return list;
+    }
+
+    @Test
+    public void sortings() throws Exception {
+        assertSorted(sort(intList()), intList());
+        assertSorted(sort(intList(1)), intList(1));
     }
 
     private List<Integer> intList(Integer... ints) {
