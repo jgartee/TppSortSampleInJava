@@ -38,10 +38,12 @@ public class SortTest {
                 list.set(1, temp);
             }
 
-            if (list.get(1) > list.get(2)) {
-                Integer temp = list.get(1);
-                list.set(1, list.get(2));
-                list.set(2, temp);
+            if (list.size() > 2) {
+                if (list.get(1) > list.get(2)) {
+                    Integer temp = list.get(1);
+                    list.set(1, list.get(2));
+                    list.set(2, temp);
+                }
             }
         }
 
