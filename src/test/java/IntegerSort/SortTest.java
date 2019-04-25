@@ -34,7 +34,7 @@ public class SortTest {
     private List<Integer> sort(List<Integer> list) {
         List<Integer> sorted = new ArrayList<Integer>();
 
-        if (list.size() <= 1) {
+        if (list.size() == 0) {
             return list;
         } else {
             Integer l = null;
