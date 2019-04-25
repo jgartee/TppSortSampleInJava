@@ -32,7 +32,9 @@ public class SortTest {
     private List<Integer> sort(List<Integer> list) {
 
         if(list.get(0) > list.get(1)){
-
+            Integer temp = list.get(0);
+            list.set(0, list.get(1));
+            list.set(1, temp);
         }
 
         return list;
