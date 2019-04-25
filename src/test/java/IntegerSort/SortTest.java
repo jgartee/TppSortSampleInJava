@@ -45,15 +45,20 @@ public class SortTest {
                 sorted.add(list.get(1));
             }
         } else if (list.size() == 3){
-            if (list.get(1) > list.get(2)) {
-                sorted.add(list.get(2));
-                sorted.add(list.get(0));
-                sorted.add(list.get(1));
-            } else {
-                sorted.add(list.get(1));
-                sorted.add(list.get(0));
-                sorted.add(list.get(2));
+            int l = 0;
+            int m = list.get(0);
+            int h = 0;
+
+            for(int i : list){
+                if(i > m)
+                    h = i;
+                if(i < m)
+                    l = i;
             }
+
+            sorted.add(l);
+            sorted.add(m);
+            sorted.add(h);
         }
             return sorted;
     }
